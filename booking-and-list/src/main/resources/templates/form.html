@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>料理店サンプル</title>
+    <link th:href="@{/style.css}" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f97babd388.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <h1><a href="./index">bistro meautifull</a></h1>
+        <nav>
+            <ul>
+                <li><a href="./">TOP</a></li>
+                <li><a href="./info">INFORMATION</a></li>
+                <li><a href="./form">RESERVATION</a></li>
+                <li><a href="./access">ACCESS</a></li>
+                <li><a href="https://www.instagram.com/"><span class="fa-brands fa-instagram"></span> Instagram</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="form-wrapper">
+        <div id="form_items">
+            <p>ご予約はこちらのフォームからお願いいたします。<br>（※ディナーのみ予約可能）</p>
+            <form action="/form" method="post">
+                <!-- CSRFトークンの追加 -->
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+
+                <label for="name">お名前</label>
+                <input class="form_item" type="text" id="name" name="name" placeholder="山田太郎" required>
+            
+                <label for="number">電話番号</label>
+                <input class="form_item" type="tel" id="number" name="number" placeholder="08011112222(ハイフン不要)" required>
+            
+                <label for="email">メールアドレス</label>
+                <input class="form_item" type="email" id="email" name="email" placeholder="sample@sample.com" required>
+            
+                <label for="date">予約したい日</label>
+                <input class="form_item" type="date" id="date" name="date" required>
+            
+                <label>予約したい時間</label>
+                <select class="form_item" id="time" name="time" required>
+                    <option value="">選択してください</option>
+                    <option value="17:00">17:00</option>
+                    <option value="17:30">17:30</option>
+                    <option value="18:00">18:00</option>
+                    <option value="18:30">18:30</option>
+                    <option value="19:00">19:00</option>
+                    <option value="19:30">19:30</option>
+                    <option value="20:00">20:00</option>
+                    <option value="20:30">20:30</option>
+                    <option value="21:00">21:00</option>
+                </select>
+            
+                <label>人数</label>
+                <select class="form_item" id="people" name="people" required>
+                    <option value="null">選択してください</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10名様以上</option>
+                </select>
+                <label for="message">備考<br></label>
+                <textarea class="input_hoge" id="message" name="message"></textarea>
+                <input type="submit" value="送信">
+            </form>
+            
+        </div>
+    </div>
+</main>
+
+<footer>
+    <!-- <div class="container"> -->
+        <div class="btn instagram">
+            <a href="https://www.instagram.com/"><span class="fa-brands fa-instagram"></span>Instagram</a>
+        </div>
+        <p>&copy; 2023 bistro <a href="./admin">meautifull</a>. All rights reserved.</p>
+    <!-- </div> -->
+</footer>
+</body>
+
+</html>

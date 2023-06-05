@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>料理店サンプル</title>
+    <link th:href="@{/style.css}" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f97babd388.js" crossorigin="anonymous"></script>
+
+<body>
+<header>
+    <div class="container">
+        <h1><a href="./index">bistro meautifull</a></h1>
+        <nav>
+            <ul>
+                <li><a href="./">TOP</a></li>
+                <li><a href="./info">INFORMATION</a></li>
+                <li><a href="./forms">RESERVATION</a></li>
+                <li><a href="./access">ACCESS</a></li>
+                <li><a href="https://www.instagram.com/"><span class="fa-brands fa-instagram"></span> Instagram</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="form-wrapper">
+        <div class="received">
+            <h2>送信完了</h2>
+            <p>お名前：<span th:text="${formList.name}"></span></p>
+            <p>電話番号：<span th:text="${formList.number}"></span></p>
+            <p>メールアドレス：<span th:text="${formList.email}"></span></p>
+            <p>予約日：<span th:text="${formList.date}"></span></p>
+            <p>時間：<span th:text="${formList.time}"></span></p>
+            <p>人数：<span th:text="${formList.people}"></span></p>
+            <p>備考：
+                <span th:if="${formList.message.isEmpty()}">なし</span>
+                <span th:unless="${formList.message.isEmpty()}" th:text="${formList.message}"></span>
+            </p>
+            <p>通常、2営業日以内にはご返答させていただきます。<br>今しばらくお待ちください。</p>
+            <p><a href="./">トップに戻る</a></p>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <!-- <div class="container"> -->
+        <div class="btn instagram">
+            <a href="https://www.instagram.com/"><span class="fa-brands fa-instagram"></span>Instagram</a>
+        </div>
+        <p>&copy; 2023 bistro <a href="./admin">meautifull</a>. All rights reserved.</p>
+    <!-- </div> -->
+</footer>
+</body>
+
+</html>

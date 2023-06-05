@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>料理店サンプル</title>
+    <link th:href="@{/style.css}" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f97babd388.js" crossorigin="anonymous"></script>
+    <script src="https://maps.google.com/maps/api/js?key=AIzaSyAuBxaidCy1QA9sCxNP5fSWIuvztnSIYL4&language=ja"></script>
+
+</head>
+
+<body>
+<header>
+    <div class="container">
+        <h1><a href="/">bistro meautifull</a></h1>
+        <nav>
+            <ul>
+                <li><a href="./">TOP</a></li>
+                <li><a href="./info">INFORMATION</a></li>
+                <li><a href="./form">RESERVATION</a></li>
+                <li><a id="acc" href="./access">ACCESS</a></li>
+                <li><a href="https://www.instagram.com/"><span class="fa-brands fa-instagram"></span> Instagram</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+
+        <section id="reservation">
+            <h2 class="title">RESERVATION</h2>
+            <h3><i class="fa fa-phone"></i>0123-0000-0000</h3>
+            <p>営業時間 am10:30〜pm:10:30(月曜日定休)<br>※都合により休業する場合がございます</p>
+            <p>お問い合わせフォームからのご予約は<a href="./form">こちら</a></p>
+        </section>
+
+        <section id="access">
+            <h2 class="title">ACCESS</h2>
+            <p>〒000-1234<br>散布流市散布流町0-0-0</p>
+            <p>尾小屋鉄道:観音下(かながそ)駅から車で20分</p>
+        </section>
+
+        <section id="map">
+
+        </section>
+        <script>
+            var MyLatLng = new google.maps.LatLng(36.253305, 136.496972);
+            var Options = {
+                zoom: 17,      //地図の縮尺値
+                center: MyLatLng,    //地図の中心座標
+                mapTypeId: 'roadmap'   //地図の種類
+            };
+            var map = new google.maps.Map(document.getElementById('map'), Options);
+            new google.maps.Marker({
+                position: MyLatLng,
+                map,
+                title: "Hello World!",
+            });
+
+            window.initMap = initMap;
+
+        </script>
+    </div>
+</main>
+<footer>
+    <!-- <div class="container"> -->
+        <div class="btn instagram">
+            <a href="https://www.instagram.com/"><span class="fa-brands fa-instagram"></span>Instagram</a>
+        </div>
+        <p>&copy; 2023 bistro <a href="./admin">meautifull</a>. All rights reserved.</p>
+    <!-- </div> -->
+</footer>
+</body>
+
+</html>

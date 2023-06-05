@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>料理店サンプル</title>
+    <link th:href="@{/style.css}" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f97babd388.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+<header>
+    <div class="container">
+        <h1><a href="/">bistro meautifull</a></h1>
+        <nav>
+            <ul>
+                <li><a href="/">TOP</a></li>
+                <li><a href="./info">INFORMATION</a></li>
+                <li><a href="./form">RESERVATION</a></li>
+                <li><a href="./access">ACCESS</a></li>
+                <li><a href="https://www.instagram.com/"><span class="fa-brands fa-instagram"></span> Instagram</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main>
+    <div class="container">
+        <section>
+            <h2 class="title">INFO</h2>
+            <div class="article" th:each="article : ${articleList}">
+                <h3 th:text="${article.date} + ' ' + ${article.title}"></h3>
+                <p th:utext="${#strings.replace(article.content, '\n', '<br>')}"></p>
+                <img th:if="${article.url != null}" th:src="${'./images/' + article.url}">
+            </div>
+        </section>
+
+    </div>
+</main>
+<footer>
+    <!-- <div class="container"> -->
+        <div class="btn instagram">
+            <a href="https://www.instagram.com/"><span class="fa-brands fa-instagram"></span>Instagram</a>
+        </div>
+        <p>&copy; 2023 bistro <a href="./admin">meautifull</a>. All rights reserved.</p>
+    <!-- </div> -->
+</footer>
+</body>
+
+</html>
