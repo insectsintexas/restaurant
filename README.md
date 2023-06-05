@@ -4,3 +4,5 @@
 管理者画面（/admin）のid,passwordはそれぞれ次の通りです。
 "admin"
 "password"
+
+h2-consoleのパスワードなどはsrc/main/resources/application.propertiesを参照してください。
